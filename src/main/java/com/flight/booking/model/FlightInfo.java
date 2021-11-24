@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.Range;
+
 import com.flight.booking.enumValue.Airline;
 import com.flight.booking.enumValue.AirportPlace;
 import com.flight.booking.enumValue.MealType;
@@ -21,7 +23,7 @@ public class FlightInfo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-
+	@Range(min=2)
 	private String flightNumber;
 	
 	@Enumerated(EnumType.STRING)

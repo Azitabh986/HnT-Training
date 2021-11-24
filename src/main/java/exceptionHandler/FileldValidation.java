@@ -12,13 +12,14 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.flight.booking.controller.Booking;
 
-@ControllerAdvice(basePackages = "com.flight.booking")
+
+//@ControllerAdvice
 public class FileldValidation extends ResponseEntityExceptionHandler{
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
+		System.out.println("Exception caught");
 		Map<String,String> hsMap=new HashMap<String, String>();
 		ex.getBindingResult().getAllErrors().forEach(error->{
 			String fieldName=((FieldError) error).getField();
@@ -29,12 +30,3 @@ public class FileldValidation extends ResponseEntityExceptionHandler{
 	}
 	
 }
-//Map<String,String> handleValidationException(MethodArgumentNotValidException e){
-//	Map<String,String> hsMap=new HashMap<String, String>();
-//	e.getBindingResult().getAllErrors().forEach(error->{
-//		String fieldName=((FieldError) error).getField();
-//		String defaultMsg=((FieldError) error).getDefaultMessage();
-//		hsMap.put(fieldName, defaultMsg);
-//	});
-//	return hsMap;
-//}

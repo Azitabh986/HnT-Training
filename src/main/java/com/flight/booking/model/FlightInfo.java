@@ -1,5 +1,6 @@
 package com.flight.booking.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -33,8 +34,8 @@ public class FlightInfo {
 	@Enumerated(EnumType.STRING)
 	private AirportPlace toPlace;
 	
-	private Date startDateTime;
-	private Date endDateTime;
+	private LocalDateTime startDateTime;
+	private LocalDateTime endDateTime;
 	private String instrument;
 	
 	@Enumerated(EnumType.STRING)
@@ -74,16 +75,16 @@ public class FlightInfo {
 	public void setToPlace(AirportPlace toPlace) {
 		this.toPlace = toPlace;
 	}
-	public Date getStartDateTime() {
+	public LocalDateTime getStartDateTime() {
 		return startDateTime;
 	}
-	public void setStartDateTime(Date startDateTime) {
+	public void setStartDateTime(LocalDateTime startDateTime) {
 		this.startDateTime = startDateTime;
 	}
-	public Date getEndDateTime() {
+	public LocalDateTime getEndDateTime() {
 		return endDateTime;
 	}
-	public void setEndDateTime(Date endDateTime) {
+	public void setEndDateTime(LocalDateTime endDateTime) {
 		this.endDateTime = endDateTime;
 	}
 	public String getInstrument() {
